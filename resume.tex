@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.2 (3/5/15)
+%
+% This template has been downloaded from:
+% https://github.com/mlda065/friggeri-letter
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% Modifications 1 : by Matthew Davis (matthew@mdavis.xyz)
+% Modifications 2 : by Thibaut Montagne (thibaut@montagne.pw)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv}
+% Add 'print' as an option into the square bracket to remove colors from this template for printing
+%\documentclass[print]{friggeri-cv}
+
+\begin{document}
+
+\setlength{\textheight}{700pt}
+
+\header{Thibaut}{Montagne}{Ingénieur bioinformaticien}
+% Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside}
+	\setlength{\fboxsep}{0pt}% Space between picture and "bordure"
+	\setlength{\fboxrule}{2pt}% Size picture "bordure"
+	\framebox{\includegraphics[width=3cm]{picture.jpg}}
+	\section{Contact \faHome}
+		adress line 1
+		adress line 2
+		country
+		~
+		\href{mailto:john@doe.com}{john@doe.com \faInbox}
+		\href{tel:+12345678910}{+12 345 678 910 \faPhone}
+		~
+		john doe \faLinkedin
+		@johndoe \faTwitter
+	\section{Langues \faGlobe}
+		Français, Anglais, Espagnol
+	\section{Programmation \faLaptop}
+		Bash, Perl, R, C
+	\section{Autre \faTerminal}
+		Atom, pandoc, Markdown, \LaTeX
+	\section{Intérêts \faHeart}
+		interest 1
+		interest 2
+		interest 3
+		interest 4
+		interest 5
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{\faBriefcase\space Professional experiences}
+
+	\begin{entrylist}
+
+		%------------------------------------------------
+
+		\Experience
+		{2014-2016}
+		{subject}
+		{Status}
+		{Company}
+		{City}
+		{Acquired and description skills}
+
+		%------------------------------------------------
+
+		\Experience
+		{2013-2014}
+		{subject}
+		{Status}
+		{Company}
+		{City}
+		{Acquired and description skills}
+
+		%------------------------------------------------
+
+	\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{\faBook\space Education}
+
+	\begin{entrylist}
+
+		%------------------------------------------------
+
+		\Education
+		{2013-2016}
+		{Diploma}
+		{University}
+		{Acquired and description skills}
+
+		%------------------------------------------------
+
+		\Education
+		{2010-2013}
+		{Diploma}
+		{University}
+		{Acquired and description skills}
+
+		%------------------------------------------------
+
+	\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	References SECTION
+%----------------------------------------------------------------------------------------
+
+\section{\faEdit\space References}
+
+	\begin{RefList}
+
+		\Reference
+		{Reference1}
+		{Status1}
+		{Company/lab1}
+		{\href{mailto:john@doe1.com}{\faInbox\space john@doe1.com}}
+		{Reference2}
+		{Status2}
+		{Comany/lab2}
+		{\href{mailto:john@doe2.com}{\faInbox\space john@doe2.com}}
+
+	\end{RefList}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
