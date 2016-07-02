@@ -4,10 +4,10 @@ https://github.com/mlda065/friggeri-letter
 
 Original author of the CV:
 Adrien Friggeri (adrien@friggeri.net)
-https://github.com/afriggeri/CV
+https://github.com/afriggeri/
 
-The CV was modified by
-Matthew Davis (matthew@mdavis.xyz)
+The CV was firstly modified by
+Matthew Davis (matthew@mdavis.xyz) and then by Thibaut Montagne (thibaut@montagne.pw)
 
 The letter was created by Matthew Davis, based on Adrien Friggeri's code
 
