@@ -45,3 +45,6 @@ This code was adapted from the original code written by [Adrien Friggeri](http:/
 The fonts come from [Google Fonts](https://www.google.com/fonts/specimen/Roboto) and are free under the [Apache 2.0 licence.](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## To do
+
+* Update README.md
+* Develop bash script to automize cover letter and resume compilation
