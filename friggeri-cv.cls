@@ -71,7 +71,7 @@
 }
 
 \newcommand{\header}[3]{%
-	\begin{tikzpicture}[remember picture,overlay]
+	\begin{tikzpicture}[remember picture, overlay]
 		\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
 		\node [anchor=center] (name) at (box) {%
 			\fontsize{40pt}{72pt}\color{header}% SIZE HEADER FIRST LINE
@@ -176,7 +176,7 @@
 	\renewcommand{\section}[1]{
 		\par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
 		}
-	\begin{textblock}{4}(0.75, 4.33)% {largeur}(pos horizontale, pos verticale)
+	\begin{textblock}{4.1}(0.75, 4.33)% {largeur}(pos horizontale, pos verticale)
 	\begin{flushright}
 	\obeycr
 }{%
