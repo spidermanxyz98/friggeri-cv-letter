@@ -5,12 +5,12 @@ This is a LaTeX template for a cover letter to go with a resume created with the
 ## The letter
 
 All resumes should have a cover letter (so I'm told).
-It would be inconsistent to stick a normal LaTeX letter in front of a friggeri resume.
+It would be inconsistent to stick a normal LaTeX letter in front of a Friggeri resume.
 Also, a normal LaTeX letter is not as eye-catching.
 
 This letter class uses the same eye catching header as the Friggeri CV, and uses the Roboto font.
 
-![letter-printscreen][letter-printscreen]
+![](http://i.imgur.com/8URVY32.png)
 
 ## The resume
 
@@ -30,7 +30,7 @@ In the example, the name appears in the contact details in all but the first pag
 This template change means changing `aside` from an environment to a command.
 So look at the example to see the new syntax.
 
-![resume-printscreen][resume-printscreen]
+![](http://i.imgur.com/padFvDd.png)
 
 ## Usage
 
@@ -45,6 +45,3 @@ This code was adapted from the original code written by [Adrien Friggeri](http:/
 The fonts come from [Google Fonts](https://www.google.com/fonts/specimen/Roboto) and are free under the [Apache 2.0 licence.](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## To do
-
-[letter-printscreen]: http://imgur.com/8URVY32
-[resume-printscreen]: http://imgur.com/padFvDd
