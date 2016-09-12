@@ -46,5 +46,5 @@ The fonts come from [Google Fonts](https://www.google.com/fonts/specimen/Roboto)
 
 ## To do
 
-[letter-printscreen]: http://i.imgur.com/ky4uiUV.png
-[resume-printscreen]: http://imgur.com/dt1GIBE.png
+[letter-printscreen]: http://imgur.com/8URVY32
+[resume-printscreen]: http://imgur.com/padFvDd
