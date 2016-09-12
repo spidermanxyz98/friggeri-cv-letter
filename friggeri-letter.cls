@@ -1,15 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{my_cv}[2015/10/31 Cover letter for friggeri resume]
 
-
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{letter}%
+	\PassOptionsToClass{\CurrentOption}{letter}%
 }
 \ProcessOptions\relax
-
 \LoadClass{letter}
-
 
 \newcommand*{\header}[3]{
   \def\firstname{#1}
@@ -17,12 +14,21 @@
   \def\subtitle{#3}
 }
 
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
+
+\RequirePackage{xcolor}
+\RequirePackage[quiet]{fontspec}
+\RequirePackage[math-style=TeX, vargreek-shape=unicode]{unicode-math}
+\RequirePackage{fontawesome}
+\RequirePackage{babel}
+\RequirePackage{tikz}
+\RequirePackage[left=6.1cm, top=2cm, right=1.5cm, bottom=1.5cm, nohead, nofoot]{geometry}
 
 %%%%%%%%%%
 % Colors %
 %%%%%%%%%%
-
-\RequirePackage{xcolor}
 
 \definecolor{white}{RGB}{255,255,255}
 
@@ -37,104 +43,67 @@
 \definecolor{blue}{HTML}{6CE0F1}
 
 \ifdefined\@cv@print
-  \colorlet{green}{gray}
-  \colorlet{orange}{gray}
-  \colorlet{purple}{gray}
-  \colorlet{brown}{gray}
-  \colorlet{red}{gray}
-  \colorlet{blue}{gray}
-  \colorlet{fillheader}{white}
-  \colorlet{fromcolor}{blue}
-  \colorlet{header}{gray}
+	\colorlet{green}{gray}
+	\colorlet{orange}{gray}
+	\colorlet{purple}{gray}
+	\colorlet{red}{gray}
+	\colorlet{blue}{gray}
+	\colorlet{fillheader}{white}
+	\colorlet{header}{gray}
 \else
-  \colorlet{fillheader}{gray}
-  \colorlet{fromcolor}{red}
-  \colorlet{header}{white}
+	\colorlet{fillheader}{gray}
+	\colorlet{header}{white}
 \fi
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
-
 
 %%%%%%%%%
 % Fonts %
 %%%%%%%%%
 
-\RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
-
-\newfontfamily\bodyfont[]{Roboto-Regular}
-\newfontfamily\thinfont[]{Roboto-Thin}
-\newfontfamily\headingfont[]{Roboto-Medium}
-\newfontfamily\positionfont[]{Roboto-LightItalic}
+\newfontfamily\bodyfont[]{Helvetica Neue}
+\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
+\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Roboto-Light}
 
-%\setmathfont{XITS Math}
-
-
+\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+\setmathfont{XITS Math}
 
 %%%%%%%%%%
 % Header %
 %%%%%%%%%%
 
-\RequirePackage{tikz}
-
-\newcommand{\rolefont}{%
-  \fontsize{14pt}{24pt}\selectfont%
-  \positionfont%
-  \color{white}%
-}
-
 %The letter template changes where current page.north is
 %let's reset it
 \setlength\headheight{0\p@}
 
-
-
 \renewcommand*{\opening}[1]{
-\begin{tikzpicture}[remember picture,overlay]
-  \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-  \node [anchor=center] (name) at (box) {%
-    \fontsize{40pt}{72pt}\color{header}%
-    {\thinfont \firstname}{\bodyfont \lastname}
-  };
-  \node [anchor=north] at (name.south) {%
-    \fontsize{14pt}{24pt}\color{header}%
-    \thinfont \subtitle%
-  };
-\end{tikzpicture}
-%\vspace{2.5cm}
-\vspace{-2\parskip}
-  %\def\rectshift{0cm}
-  %\vspace{-\rectshift}
-  %\begin{tikzpicture}[remember picture,overlay]
-%    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north) {};
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
+		\node [anchor=center] (name) at (box) {%
+			\fontsize{40pt}{72pt}\color{header}%
+			{\thinfont \firstname}{\bodyfont \lastname}
+		};
+		\node [anchor=north] at (name.south) {%
+			\fontsize{20pt}{24pt}\color{header}%
+			\thinfont \subtitle%
+		};
+	\end{tikzpicture}
 
-  %\ifx\@empty\fromaddress
- % \thispagestyle{firstpage}%
-%    {\raggedleft\@date\par}%
- % \else  % home address
-%    %\thispagestyle{empty}%
-%    \node [anchor=east,text=fromcolor,align=left] at (box.east) [text=red] {%
-%      \fromaddress%
-%    };
-%  \fi
- % \end{tikzpicture}
- % \vspace{\rectshift}
- % \vspace{-2\parskip}
- % \vspace{2\parskip}%
-  \ifx\@empty\fromaddress
-    \thispagestyle{firstpage}%
-    {\raggedleft\@date\par}%
-  \else  % home address
-    \thispagestyle{empty}%
-    {\raggedleft\begin{tabular}{l@{}}\ignorespaces
-    \fromaddress \\*[2\parskip]%
-    \@date \end{tabular}\par}%
-  \fi
-  {\raggedright \toname \\ \toaddress \par}%
-  \vspace{2\parskip}%\\
-  #1\par\nobreak}
+	\vspace{2.5cm}
+	\vspace{-2\parskip}
 
-%\pagestyle{empty}
+	\ifx\@empty\fromaddress
+		\thispagestyle{firstpage}%
+		{\raggedleft\@date\par}%
+	\else  % home address
+		\thispagestyle{empty}%
+		{\raggedleft\begin{tabular}{l@{}}\ignorespaces
+		\fromaddress \\*[2\parskip]%
+		\@date \end{tabular}\par}%
+	\fi
+	{\raggedright \toname \\ \toaddress \par}%
+	\vspace{2\parskip}%
+	#1\par\nobreak
+}
