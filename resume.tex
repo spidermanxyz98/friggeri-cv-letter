@@ -22,128 +22,148 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[]{friggeri-cv}
-% Add 'print' as an option into the square bracket to remove colors from this template for printing
 %\documentclass[print]{friggeri-cv}
+%% Add 'print' as an option into the square bracket to remove colors from this template for printing
 
 \begin{document}
 
-\setlength{\textheight}{700pt}
+	\setlength{\textheight}{700pt}
 
-\header{Thibaut}{Montagne}{Ingénieur bioinformaticien}
-% Your name and current job title/field
+	\header{John}{Doe}{Current job}
+	% Your name and current job title/field
 
-%----------------------------------------------------------------------------------------
-%	SIDEBAR SECTION
-%----------------------------------------------------------------------------------------
+	%----------------------------------------------------------------------------------------
+	%	SIDEBAR SECTION
+	%----------------------------------------------------------------------------------------
 
-\begin{aside}
-	\setlength{\fboxsep}{0pt}% Space between picture and "bordure"
-	\setlength{\fboxrule}{2pt}% Size picture "bordure"
-	\framebox{\includegraphics[width=3cm]{picture.jpg}}
-	\section{Contact \faHome}
-		adress line 1
-		adress line 2
-		country
-		~
-		\href{mailto:john@doe.com}{john@doe.com \faInbox}
-		\href{tel:+12345678910}{+12 345 678 910 \faPhone}
-		~
-		john doe \faLinkedin
-		@johndoe \faTwitter
-	\section{Langues \faGlobe}
-		Français, Anglais, Espagnol
-	\section{Programmation \faLaptop}
-		Bash, Perl, R, C
-	\section{Autre \faTerminal}
-		Atom, pandoc, Markdown, \LaTeX
-	\section{Intérêts \faHeart}
-		interest 1
-		interest 2
-		interest 3
-		interest 4
-		interest 5
-\end{aside}
+	\begin{aside}
+		\setlength{\fboxsep}{0pt}  % Space between picture and "bordure"
+		\setlength{\fboxrule}{2pt} % "bordure" size around the picture
+		\framebox{\includegraphics[width=3cm]{picture.jpg}} % Place your picture here
+		\section{Contact \faHome}
+			adress line 1
+			adress line 2
+			country
+			~
+			\href{mailto:john@doe.com}{john@doe.com \faInbox}
+			\href{tel:+12345678910}{+12 345 678 910 \faPhone}
+			~
+			john doe \faLinkedin
+			@johndoe \faTwitter
+		\section{Langues \faGlobe}
+			French, English, Spanish
+		\section{Programmation \faLaptop}
+			Bash, Perl, R, C
+		\section{Autre \faTerminal}
+			Atom, pandoc, Markdown, \LaTeX
+		\section{Summer jobs \faIndustry}
+			jobs1
+			jobs2
+		\section{Volunteerism \faUsers}
+			volunteerism
+		\section{Intérêts \faHeart}
+			interest 1
+			interest 2
+			interest 3
+			interest 4
+			interest 5
+	\end{aside}
 
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
+	%----------------------------------------------------------------------------------------
+	% EXPERIENCE SECTION
+	%----------------------------------------------------------------------------------------
 
-\section{\faBriefcase\space Professional experiences}
+	\section{\faBriefcase\space Professional experiences}
 
-	\begin{entrylist}
+		\begin{entrylist}
 
-		%------------------------------------------------
+			%------------------------------------------------
 
-		\Experience
-		{2014-2016}
-		{subject}
-		{Status}
-		{Company}
-		{City}
-		{Acquired and description skills}
+			\Experience
+			{2014-2016}
+			{Subject}
+			{Status}
+			{Company}
+			{City}
+			{$\bullet$ action/skill 1\\
+			$\bullet$ action/skill 2\\
+			$\bullet$ action/skill 3\\
+			$\bullet$ action/skill 4\\
+			$\bullet$ action/skill 5\\}
 
-		%------------------------------------------------
+			%------------------------------------------------
 
-		\Experience
-		{2013-2014}
-		{subject}
-		{Status}
-		{Company}
-		{City}
-		{Acquired and description skills}
+			\Experience
+			{2013-2014}
+			{Subject}
+			{Status}
+			{Company}
+			{City}
+			{$\bullet$ action/skill 1\\
+			$\bullet$ action/skill 2\\
+			$\bullet$ action/skill 3\\
+			$\bullet$ action/skill 4\\
+			$\bullet$ action/skill 5\\}
 
-		%------------------------------------------------
+			%------------------------------------------------
 
-	\end{entrylist}
+		\end{entrylist}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
+	%----------------------------------------------------------------------------------------
+	%	EDUCATION SECTION
+	%----------------------------------------------------------------------------------------
 
-\section{\faBook\space Education}
+	\section{\faBook\space Education}
 
-	\begin{entrylist}
+		\begin{entrylist}
 
-		%------------------------------------------------
+			%------------------------------------------------
 
-		\Education
-		{2013-2016}
-		{Diploma}
-		{University}
-		{Acquired and description skills}
+			\Education
+			{2013-2016}
+			{Diploma}
+			{University}
+			{$\bullet$ action/skill 1\\
+			$\bullet$ action/skill 2\\
+			$\bullet$ action/skill 3\\
+			$\bullet$ action/skill 4\\
+			$\bullet$ action/skill 5\\}
+			%------------------------------------------------
 
-		%------------------------------------------------
+			\Education
+			{2010-2013}
+			{Diploma}
+			{University}
+			{$\bullet$ action/skill 1\\
+			$\bullet$ action/skill 2\\
+			$\bullet$ action/skill 3\\
+			$\bullet$ action/skill 4\\
+			$\bullet$ action/skill 5\\}
 
-		\Education
-		{2010-2013}
-		{Diploma}
-		{University}
-		{Acquired and description skills}
+			%------------------------------------------------
 
-		%------------------------------------------------
+		\end{entrylist}
 
-	\end{entrylist}
+	%----------------------------------------------------------------------------------------
+	%	References SECTION
+	%----------------------------------------------------------------------------------------
 
-%----------------------------------------------------------------------------------------
-%	References SECTION
-%----------------------------------------------------------------------------------------
+	\section{\faEdit\space References}
 
-\section{\faEdit\space References}
+		\begin{RefList}
 
-	\begin{RefList}
+			\Reference
+			{Reference1 first and last name}
+			{Reference1 status}
+			{Reference1 company/lab}
+			{\href{mailto:john@doe1.com}{\faInbox\space john@doe1.com}}
+			{Reference2 first and last name}
+			{Reference2 status}
+			{Reference2 company/lab}
+			{\href{mailto:john@doe2.com}{\faInbox\space john@doe2.com}}
 
-		\Reference
-		{Reference1}
-		{Status1}
-		{Company/lab1}
-		{\href{mailto:john@doe1.com}{\faInbox\space john@doe1.com}}
-		{Reference2}
-		{Status2}
-		{Comany/lab2}
-		{\href{mailto:john@doe2.com}{\faInbox\space john@doe2.com}}
+		\end{RefList}
 
-	\end{RefList}
-
-%----------------------------------------------------------------------------------------
+	%----------------------------------------------------------------------------------------
 
 \end{document}
