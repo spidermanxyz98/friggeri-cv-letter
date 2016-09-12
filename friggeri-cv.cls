@@ -1,5 +1,5 @@
-\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
 \NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
 
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
@@ -8,11 +8,25 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
+
+\RequirePackage{xcolor}
+\RequirePackage[quiet]{fontspec}
+\RequirePackage{fontawesome}
+\RequirePackage{tikz}
+\RequirePackage[quiet]{fontspec}
+\RequirePackage[math-style=TeX, vargreek-shape=unicode]{unicode-math}
+\RequirePackage{ifthen}
+\RequirePackage{parskip}
+\RequirePackage[absolute, overlay]{textpos}
+\RequirePackage[left=6.1cm, top=2cm, right=1.5cm, bottom=1.5cm, nohead, nofoot]{geometry}
+\RequirePackage{hyperref}
+
 %%%%%%%%%%
 % Colors %
 %%%%%%%%%%
-
-\RequirePackage{xcolor}
 
 \definecolor{white}{RGB}{255,255,255}
 
@@ -45,10 +59,6 @@
 % Fonts %
 %%%%%%%%%
 
-\RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX, vargreek-shape=unicode]{unicode-math}
-\RequirePackage{fontawesome}
-
 \newfontfamily\bodyfont[]{Helvetica Neue}
 \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
 \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
@@ -62,13 +72,6 @@
 % Header %
 %%%%%%%%%%
 
-\RequirePackage{tikz}
-
-\newcommand{\rolefont}{%
-	\fontsize{14pt}{24pt}\selectfont%
-	\positionfont%
-	\color{white}%
-}
 
 \newcommand{\header}[3]{%
 	\begin{tikzpicture}[remember picture, overlay]
@@ -89,8 +92,6 @@
 %%%%%%%%%%%%%
 % Structure %
 %%%%%%%%%%%%%
-
-\RequirePackage{parskip}
 
 \newcounter{colorCounter}
 \def\@sectioncolor#1{%
@@ -126,8 +127,6 @@
 %%%%%%%%%%%%%%%%%%%%
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
-
-\RequirePackage{ifthen}
 
 \setlength{\tabcolsep}{0pt}
 
@@ -167,7 +166,6 @@
 % Side block %
 %%%%%%%%%%%%%%
 
-\RequirePackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
 
@@ -187,143 +185,9 @@
 }
 
 %%%%%%%%%%%%%%%%
-% Bibliography %
-%%%%%%%%%%%%%%%%
-
-% \RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
-%
-% \DeclareFieldFormat[article]{title}{#1\par}
-% \DeclareFieldFormat[book]{title}{#1\par}
-% \DeclareFieldFormat[inproceedings]{title}{#1\par}
-% \DeclareFieldFormat[misc]{title}{#1\par}
-% \DeclareFieldFormat[report]{title}{#1\par}
-%
-% \DeclareBibliographyDriver{article}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \usebibmacro{journal+issuetitle}%
-%     \setunit{\space}%
-%     \printfield{pages}%
-%     \newunit%
-%     \printlist{publisher}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareBibliographyDriver{book}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \printlist{publisher}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{note}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \setunit{\addcomma\space}%
-%     \printlist{location}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-%
-% \DeclareBibliographyDriver{inproceedings}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}%
-%     \printfield{booktitle}%
-%     \setunit{\addcomma\space}%
-%     \printfield{year}%
-%     \setunit{\addcomma\space}%
-%     \printlist{location}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareBibliographyDriver{misc}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \printfield{booktitle}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{note}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \setunit{\addcomma\space}%
-%     \printlist{location}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareBibliographyDriver{report}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \printfield{type}%
-%     \setunit{\space}%
-%     \printfield{number}%
-%     \setunit{\addcomma\space}%
-%     \printfield{year}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareNameFormat{author}{%
-%   \small\addfontfeature{Color=lightgray}%
-%   \ifblank{#3}{}{#3\space}#1%
-%   \ifthenelse{\value{listcount}<\value{liststop}}
-%     {\addcomma\space}
-%     {}%
-% }
-%
-% \defbibheading{bibheading}[\bibname]{%%    \subsubsection*{#1}%    \markboth{#1}{#1}
-% }
-%
-% \newcommand{\printbibsection}[2]{
-%   \begin{refsection}
-%     \nocite{*}
-%     \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=bibheading]
-%   \end{refsection}
-% }
-%
-% \DeclareSortingScheme{chronological}{
-%   \sort[direction=descending]{\field{year}}
-%   \sort[direction=descending]{\field{month}}
-% }
-
-%%%%%%%%%%%%%%%%
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=1.5cm,nohead,nofoot]{geometry}
-\RequirePackage{hyperref}
 \hypersetup{
 	colorlinks=true,
 	linkcolor=false,
