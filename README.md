@@ -5,7 +5,7 @@ This is a LaTeX template for a cover letter to go with a resume created with the
 ## The letter
 
 All resumes should have a cover letter (so I'm told).
-It would be inconsistent to stick a normal LaTeX letter infront of a friggeri resume.
+It would be inconsistent to stick a normal LaTeX letter in front of a friggeri resume.
 Also, a normal LaTeX letter is not as eye-catching.
 
 This letter class uses the same eye catching header as the Friggeri CV, and uses the Roboto font.
@@ -17,12 +17,12 @@ This letter class uses the same eye catching header as the Friggeri CV, and uses
 I've also modified the original friggeri-cv template:
 * The original one used the *HelveticaNeue* font family, which costs money.
 I changed it to use the almost identical *Roboto* font family, which is free.
-For convinience, I've included the *Robot* fonts in this repo.
-* I adjusted the coloring of the headings in the resume, so the whole heading is coloured, not just the first 3 letters.
+For convenience, I've included the *Robot* fonts in this repo.
+* I adjusted the coloring of the headings in the resume, so the whole heading is colored, not just the first 3 letters.
 To install the fonts, just double click on them in a file browser.
 Your operating system should then ask if you want to install them.
 * I tinkered with the spacing of the column where you enter the years, so that new line breaks are automatic.
-* I changed the link coloring, so that links are the same colour as everything else
+* I changed the link coloring, so that links are the same color as everything else
 * I got rid of the bibliography stuff, because who needs a bibliography in a resume?
 * I adjusted the *aside* section (the contacts in the left margin), so now they appear on every page.
 The motivation for this is in case the pages of a hard copy get separated.
