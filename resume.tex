@@ -25,6 +25,16 @@
 %\documentclass[print]{friggeri-cv}
 %% Add 'print' as an option into the square bracket to remove colors from this template for printing
 
+%%%%%%%%%%%%%%
+% TRADUCTION %
+%%%%%%%%%%%%%%
+
+\usepackage[french, english]{babel} % makes FRENCH content
+%\usepackage[english, french]{babel} % makes ENGLISH content
+
+% this is the macro to define phrases in two languages:
+\newcommand{\trad}[2]{\ifnum\pdfstrcmp{\languagename}{english}=0 {#2}\else{#1}\fi}
+
 \begin{document}
 
 	\setlength{\textheight}{700pt}
