@@ -72,7 +72,6 @@
 % Header %
 %%%%%%%%%%
 
-
 \newcommand{\header}[3]{%
 	\begin{tikzpicture}[remember picture, overlay]
 		\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
