@@ -1,9 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Friggeri Resume/CV
 % XeLaTeX Template
-% Version 1.0 (3/5/15)
 %
-% This template has been downloaded from:
+% This template has been originally downloaded from:
 % https://github.com/mlda065/friggeri-letter
 %
 % Original author:
@@ -25,22 +24,53 @@
 %\documentclass[print]{friggeri-cv}
 %% Add 'print' as an option into the square bracket to remove colors from this template for printing
 
+%%%%%%%%%%%%%%%%
+% NEW COMMANDS %
+%%%%%%%%%%%%%%%%
+
+% \checkjobname : stop compiling if jobname is not french or english
+\newcommand{\checkjobname}{%
+	\newcounter{foo}
+	\setcounter{foo}{0}
+	\ifnum\pdfstrcmp{\jobname}{french}=0
+		\stepcounter{foo}
+	\fi
+	\ifnum\pdfstrcmp{\jobname}{english}=0
+		\stepcounter{foo}
+	\fi
+	\ifnum\the\value{foo}=0
+		\message{Error : bad jobname ! Must be : french or english !}
+		\stop
+	\fi
+}
+
 %%%%%%%%%%%%%%
 % TRADUCTION %
 %%%%%%%%%%%%%%
 
-\usepackage[french, english]{babel} % makes FRENCH content
-%\usepackage[english, french]{babel} % makes ENGLISH content
+\usepackage[french, english]{babel}
 
 % this is the macro to define phrases in two languages:
-\newcommand{\trad}[2]{\ifnum\pdfstrcmp{\languagename}{english}=0 {#2}\else{#1}\fi}
+\newcommand{\trad}[2]{
+	\ifnum\pdfstrcmp{\jobname}{french}=0
+		{#1}
+	\else
+		{#2}
+	\fi
+}
+
+%%%%%%%%%%%%%%%%%%
+% BEGIN DOCUMENT %
+%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
+	\checkjobname
+
 	\setlength{\textheight}{700pt}
 
-	\header{FirstName}{LastName}{Professional Cool Guy}
 	% Your name and current job title/field
+	\header{\trad{Prénom}{FirstName}}{\trad{Nom}{LastName}}{\trad{Jeune cadre dynamique}{Professional Cool Guy}}
 
 	%----------------------------------------------------------------------------------------
 	%	SIDEBAR SECTION
