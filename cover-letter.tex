@@ -22,30 +22,71 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,english]{friggeri-letter}
+\documentclass[a4paper, english]{friggeri-letter}
+
+%%%%%%%%%%%%%%%%
+% NEW COMMANDS %
+%%%%%%%%%%%%%%%%
+
+% \checkjobname : stop compiling if jobname is not french or english
+\newcommand{\checkjobname}{%
+	\newcounter{foo}
+	\setcounter{foo}{0}
+	\ifnum\pdfstrcmp{\jobname}{french}=0
+		\stepcounter{foo}
+	\fi
+	\ifnum\pdfstrcmp{\jobname}{english}=0
+		\stepcounter{foo}
+	\fi
+	\ifnum\the\value{foo}=0
+		\message{Error : bad jobname ! Must be : french or english !}
+		\stop
+	\fi
+}
+
+%%%%%%%%%%%%%%
+% TRADUCTION %
+%%%%%%%%%%%%%%
+
+\usepackage[french, english]{babel}
+
+% this is the macro to define phrases in two languages:
+\newcommand{\trad}[2]{
+	\ifnum\pdfstrcmp{\jobname}{french}=0
+		{#1}
+	\else
+		{#2}
+	\fi
+}
+
+%%%%%%%%%%%%%%%%%%
+% BEGIN DOCUMENT %
+%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-\header{FirstName}{LastName}{Professional Cool Guy}
+	\header {\trad{Prénom}{FirstName}}
+			{\trad{Nom}{LastName}}
+			{\trad{Jeune cadre dynamique}{Professional Cool Guy}}
 
-\address{
-	123 Fake St \\
-	Australia
-}
+	\address{
+		\trad{Adresse ENVOYEUR}{SENDING_GUY adress}  \\
+		\trad{Pays ENVOYEUR}{SENDING_GUY country}
+	}
 
-\letter{
-	Recipient's name \\
-	1234 Fake St \\
-	New Zealand
-}
+	\letter{
+		\trad{Nom DESTINATAIRE}{DESTINATION_GUY name}  \\
+		\trad{Adresse DESTINATAIRE}{DESTINATION_GUY adress}  \\
+		\trad{Pays DESTINATAIRE}{DESTINATION_GUY country}
+	}
 
-\opening{Dear Name,}
+	\opening{Dear Name,}
 
-Explain why you want the job and summarise why you deserve it.
+		Explain why you want the job and summarise why you deserve it.
 
-\closing{
-   Yours Sincerely\\
-   FirstName LastName
-}
+	\closing{
+		Yours Sincerely,\\
+		\firstname \lastname
+	}
 
 \end{document}

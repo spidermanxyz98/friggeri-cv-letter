@@ -22,7 +22,6 @@
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX, vargreek-shape=unicode]{unicode-math}
 \RequirePackage{fontawesome}
-\RequirePackage{babel}
 \RequirePackage{tikz}
 \RequirePackage[left=6.1cm, top=2cm, right=1.5cm, bottom=1.5cm, nohead, nofoot]{geometry}
 
@@ -79,7 +78,7 @@
 \setlength\headheight{0\p@}
 
 \renewcommand*{\opening}[1]{
-	\begin{tikzpicture}[remember picture,overlay]
+	\begin{tikzpicture}[remember picture, overlay]
 		\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
 		\node [anchor=center] (name) at (box) {%
 			\fontsize{40pt}{72pt}\color{header}%
@@ -95,15 +94,14 @@
 	\vspace{-2\parskip}
 
 	\ifx\@empty\fromaddress
-		\thispagestyle{firstpage}%
-		{\raggedleft\@date\par}%
+
+		\@date\par
 	\else  % home address
-		\thispagestyle{empty}%
-		{\raggedleft\begin{tabular}{l@{}}\ignorespaces
-		\fromaddress \\*[2\parskip]%
-		\@date \end{tabular}\par}%
+			\fromaddress\par
+			\@date\par
 	\fi
-	{\raggedright \toname \\ \toaddress \par}%
-	\vspace{2\parskip}%
-	#1\par\nobreak
+	\toname\par
+	\toaddress\par
+
+	#1
 }
