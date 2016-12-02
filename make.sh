@@ -4,12 +4,14 @@ set -u
 function USAGE() {
 	printf "Usage:\n %s -t TEXFILE [-l LANG] [-n NAME]\n\n" $( basename ${0} )
 	echo "Required argument : "
-	echo " -t TEXFILE"
+	echo " -r TEX_RESUME"
+	echo " -c TEX_COVER"
 	echo "Options :"
 	echo " -l LANG (english or french)           [by default : french]"
 	echo " -n NAME (CV_NAME.pdf and CL_NAME.pdf) [by default : JohnDoe]"
 	echo
 	echo "Help :"
+	echo " -v activate verbose mode"
 	echo " -h print this help"
 	echo
 	exit ${1:-0}
@@ -27,21 +29,29 @@ cleanlatex () {
 	fi
 }
 
-TEXFILE="NOTDEFINED"
+TEX_RESUME="NOTDEFINED"
+TEX_COVER="NOTDEFINED"
 LANG="french"
 NAME="JohnDoe"
+VERBOSE="NO"
 
-while getopts ":ht:n:l:" OPTION
+while getopts ":hvr:c:n:l:" OPTION
 do
 	case ${OPTION} in
-		t)
-			TEXFILE=${OPTARG}
+		r)
+			TEX_RESUME=${OPTARG}
+			;;
+		c)
+			TEX_COVER=${OPTARG}
 			;;
 		l)
 			LANG=${OPTARG}
 			;;
 		n)
 			NAME=${OPTARG}
+			;;
+		v)
+			VERBOSE="YES"
 			;;
 		h)
 			USAGE
@@ -57,16 +67,45 @@ do
 	esac
 done
 
-if [[ ${TEXFILE} == "NOTDEFINED" ]] ; then
+if [[ ${TEX_COVER} == "NOTDEFINED" || ${TEX_RESUME} == "NOTDEFINED" ]] ; then
 	USAGE
 	exit 1
 fi
 
-xelatex -jobname=${LANG} "resume.tex"
-xelatex -jobname=${LANG} "resume.tex"
 
-mv "${LANG}.pdf" "CV_${NAME}.pdf"
+# RESUME
+CMD="xelatex -jobname=${LANG} ${TEX_RESUME} >> resume_compilation.log"
+echo "Command : ${CMD}"
+eval ${CMD} # First compilation
+echo "Command : ${CMD}"
+eval ${CMD} # Second compilation
+CMD="mv ${LANG}.pdf ${NAME}_resume.pdf"
+echo "Command : ${CMD}"
+eval ${CMD}
+CMD="cleanlatex ${LANG}"
+echo "Command : ${CMD}"
+eval ${CMD}
+CMD="open ${NAME}_resume.pdf"
+echo "Command : ${CMD}"
+eval ${CMD}
 
-cleanlatex ${LANG}
+# COVER-LETTER
+CMD="xelatex -jobname=${LANG} ${TEX_COVER} >> cover-letter_compilation.log"
+echo "Command : ${CMD}"
+eval ${CMD} # First compilation
+echo "Command : ${CMD}"
+eval ${CMD} # Second compilation
+CMD="mv ${LANG}.pdf ${NAME}_cover-letter.pdf"
+echo "Command : ${CMD}"
+eval ${CMD}
+CMD="cleanlatex ${LANG}"
+echo "Command : ${CMD}"
+eval ${CMD}
+CMD="open ${NAME}_cover-letter.pdf"
+echo "Command : ${CMD}"
+eval ${CMD}
 
-open "CV_${NAME}.pdf"
+if [[ ${VERBOSE} == "NO" ]] ; then
+	rm "resume_compilation.log"
+	rm "cover-letter_compilation.log"
+fi
