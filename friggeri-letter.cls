@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{my_cv}[2015/10/31 Cover letter for friggeri resume]
+\ProvidesClass{friggeri-letter}[2016/12/06 Cover letter for a resume based on friggeri template]
 
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
@@ -9,9 +9,9 @@
 \LoadClass{letter}
 
 \newcommand*{\header}[3]{
-  \def\firstname{#1}
-  \def\lastname{#2}
-  \def\subtitle{#3}
+	\def\firstname{#1}
+	\def\lastname{#2}
+	\def\subtitle{#3}
 }
 
 %%%%%%%%%%%%
@@ -23,7 +23,7 @@
 \RequirePackage[math-style=TeX, vargreek-shape=unicode]{unicode-math}
 \RequirePackage{fontawesome}
 \RequirePackage{tikz}
-\RequirePackage[left=6.1cm, top=2cm, right=1.5cm, bottom=1.5cm, nohead, nofoot]{geometry}
+\RequirePackage[left=2.5cm, top=2.5cm, right=2.5cm, bottom=2.5cm, nohead, nofoot]{geometry}
 
 %%%%%%%%%%
 % Colors %
@@ -82,26 +82,28 @@
 		\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
 		\node [anchor=center] (name) at (box) {%
 			\fontsize{40pt}{72pt}\color{header}%
-			{\thinfont \firstname}{\bodyfont \lastname}
+			{\thinfont\firstname}{\bodyfont\lastname}
 		};
 		\node [anchor=north] at (name.south) {%
 			\fontsize{20pt}{24pt}\color{header}%
-			\thinfont \subtitle%
+			\thinfont\subtitle%
 		};
 	\end{tikzpicture}
 
 	\vspace{2.5cm}
 	\vspace{-2\parskip}
 
-	\ifx\@empty\fromaddress
 
-		\@date\par
-	\else  % home address
-			\fromaddress\par
-			\@date\par
+	% without home address
+	\ifx\@empty\fromaddress
+		\@date\par      % date
+	% with home address
+	\else
+		\fromaddress\par %home address
+		\@date\par       %date
 	\fi
-	\toname\par
-	\toaddress\par
+	\toname\par          %destination guy name
+	\toaddress\par       %destination guy address
 
 	#1
 }
