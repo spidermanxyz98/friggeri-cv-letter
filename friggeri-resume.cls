@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
+\ProvidesClass{friggeri-resume}[2016/12/06 Resume based on friggeri template]
 
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
