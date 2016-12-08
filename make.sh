@@ -74,36 +74,26 @@ fi
 
 
 # RESUME
-CMD="xelatex -jobname=${LANG} ${TEX_RESUME} >> resume_compilation.log"
-echo "Command : ${CMD}"
-eval ${CMD} # First compilation
-echo "Command : ${CMD}"
-eval ${CMD} # Second compilation
-CMD="mv ${LANG}.pdf ${NAME}_resume.pdf"
-echo "Command : ${CMD}"
-eval ${CMD}
-CMD="cleanlatex ${LANG}"
-echo "Command : ${CMD}"
-eval ${CMD}
-CMD="open ${NAME}_resume.pdf"
-echo "Command : ${CMD}"
-eval ${CMD}
+CMD1="xelatex -jobname=${LANG} ${TEX_RESUME} >> resume_compilation.log"
+CMD2="mv ${LANG}.pdf ${NAME}_resume.pdf"
+CMD3="cleanlatex ${LANG}"
+CMD4="open ${NAME}_resume.pdf"
+echo "Command : ${CMD1}" ; eval ${CMD1} # First compilation
+echo "Command : ${CMD1}" ; eval ${CMD1} # Second compilation
+echo "Command : ${CMD2}" ; eval ${CMD2}
+echo "Command : ${CMD3}" ; eval ${CMD3}
+# echo "Command : ${CMD4}" ; eval ${CMD4}
 
 # COVER-LETTER
-CMD="xelatex -jobname=${LANG} ${TEX_COVER} >> cover-letter_compilation.log"
-echo "Command : ${CMD}"
-eval ${CMD} # First compilation
-echo "Command : ${CMD}"
-eval ${CMD} # Second compilation
-CMD="mv ${LANG}.pdf ${NAME}_cover-letter.pdf"
-echo "Command : ${CMD}"
-eval ${CMD}
-CMD="cleanlatex ${LANG}"
-echo "Command : ${CMD}"
-eval ${CMD}
-CMD="open ${NAME}_cover-letter.pdf"
-echo "Command : ${CMD}"
-eval ${CMD}
+CMD1="xelatex -jobname=${LANG} ${TEX_COVER} >> cover-letter_compilation.log"
+CMD2="mv ${LANG}.pdf ${NAME}_cover-letter.pdf"
+CMD3="cleanlatex ${LANG}"
+CMD4="open ${NAME}_cover-letter.pdf"
+echo "Command : ${CMD1}" ; eval ${CMD1} # First compilation
+echo "Command : ${CMD1}" ; eval ${CMD1} # Second compilation
+echo "Command : ${CMD2}" ; eval ${CMD2}
+echo "Command : ${CMD3}" ; eval ${CMD3}
+# echo "Command : ${CMD4}" ; eval ${CMD4}
 
 if [[ ${VERBOSE} == "NO" ]] ; then
 	rm "resume_compilation.log"
