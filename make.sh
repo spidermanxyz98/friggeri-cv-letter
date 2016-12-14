@@ -74,7 +74,7 @@ fi
 
 
 # RESUME
-CMD1="xelatex -jobname=${LANG} ${TEX_RESUME} >> resume_compilation.log"
+CMD1="xelatex -jobname=${LANG} ${TEX_RESUME} >> compilation_resume.log"
 CMD2="mv ${LANG}.pdf ${NAME}_resume.pdf"
 CMD3="cleanlatex ${LANG}"
 CMD4="open ${NAME}_resume.pdf"
@@ -85,7 +85,7 @@ echo "Command : ${CMD3}" ; eval ${CMD3}
 # echo "Command : ${CMD4}" ; eval ${CMD4}
 
 # COVER-LETTER
-CMD1="xelatex -jobname=${LANG} ${TEX_COVER} >> cover-letter_compilation.log"
+CMD1="xelatex -jobname=${LANG} ${TEX_COVER} >> compilation_cover-letter.log"
 CMD2="mv ${LANG}.pdf ${NAME}_cover-letter.pdf"
 CMD3="cleanlatex ${LANG}"
 CMD4="open ${NAME}_cover-letter.pdf"
@@ -96,6 +96,6 @@ echo "Command : ${CMD3}" ; eval ${CMD3}
 # echo "Command : ${CMD4}" ; eval ${CMD4}
 
 if [[ ${VERBOSE} == "NO" ]] ; then
-	rm "resume_compilation.log"
-	rm "cover-letter_compilation.log"
+	rm "compilation_resume.log"
+	rm "compilation_cover-letter.log"
 fi
