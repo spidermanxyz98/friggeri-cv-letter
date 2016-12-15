@@ -4,11 +4,11 @@ set -u
 function USAGE() {
 	printf "Usage:\n %s -t TEXFILE [-l LANG] [-n NAME]\n\n" $( basename ${0} )
 	echo "Required argument : "
-	echo " -r TEX_RESUME"
-	echo " -c TEX_COVER"
+	echo " -r TEX_RESUME                                       [by default : resume/resume.tex]"
+	echo " -c TEX_COVER                                        [by default : cover-letter/cover-letter.tex]"
 	echo "Options :"
-	echo " -l LANG (english or french)           [by default : french]"
-	echo " -n NAME (CV_NAME.pdf and CL_NAME.pdf) [by default : JohnDoe]"
+	echo " -l LANG (english or french)                         [by default : french]"
+	echo " -n NAME (NAME_resume.pdf and NAME_cover-letter.pdf) [by default : JohnDoe]"
 	echo
 	echo "Help :"
 	echo " -v activate verbose mode"
@@ -29,8 +29,8 @@ cleanlatex () {
 	fi
 }
 
-TEX_RESUME="NOTDEFINED"
-TEX_COVER="NOTDEFINED"
+TEX_RESUME="resume/resume.tex"
+TEX_COVER="cover-letter/cover-letter.tex"
 LANG="french"
 NAME="JohnDoe"
 VERBOSE="NO"
@@ -66,12 +66,6 @@ do
 			;;
 	esac
 done
-
-if [[ ${TEX_COVER} == "NOTDEFINED" || ${TEX_RESUME} == "NOTDEFINED" ]] ; then
-	USAGE
-	exit 1
-fi
-
 
 # RESUME
 CMD1="xelatex -jobname=${LANG} ${TEX_RESUME} >> compilation_resume.log"
