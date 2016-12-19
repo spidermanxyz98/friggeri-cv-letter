@@ -24,6 +24,42 @@
 \RequirePackage[left=6.1cm, top=2cm, right=1.5cm, bottom=1.5cm, nohead, nofoot]{geometry}
 \RequirePackage{hyperref}
 
+%%%%%%%%%%%%%%%%
+% NEW COMMANDS %
+%%%%%%%%%%%%%%%%
+
+% \checkjobname : stop compiling if jobname is not french or english
+\newcommand{\checkjobname}{%
+	\newcounter{foo}
+	\setcounter{foo}{0}
+	\ifnum\pdfstrcmp{\jobname}{french}=0
+		\stepcounter{foo}
+	\fi
+	\ifnum\pdfstrcmp{\jobname}{english}=0
+		\stepcounter{foo}
+	\fi
+	\ifnum\the\value{foo}=0
+		\message{Error : bad jobname ! Must be : french or english !}
+		\stop
+	\fi
+}
+
+%%%%%%%%%%%%%%
+% TRADUCTION %
+%%%%%%%%%%%%%%
+
+\usepackage[french, english]{babel}
+
+% this is the macro to define phrases in two languages:
+\newcommand{\trad}[2]{
+	\ifnum\pdfstrcmp{\jobname}{french}=0
+		#1
+	\else
+		#2
+	\fi
+	\ignorespaces
+}
+
 %%%%%%%%%%
 % Colors %
 %%%%%%%%%%
@@ -129,37 +165,47 @@
 
 \setlength{\tabcolsep}{0pt}
 
-\newenvironment{entrylist}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{2.5cm}l}%
-}{%
-	\end{tabular*}
-}
-
-\newenvironment{RefList}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{8.5cm}l}%
-}{%
-	\end{tabular*}
-}
-
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 
-% New command to add a new experience
-\newcommand{\Experience}[6]{%
-	#1	&	\parbox[t]{11.5cm}{	\textbf{#2}					\hfill\textbf{#3}\\%
-			{\addfontfeature{Color=lightgray} \textit{#4}}	\hfill{\addfontfeature{Color=lightgray} #5}\\%
-			#6												\vspace{\parsep}}\\}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{entrylist}{%
+	\begin{tabular*}{\textwidth}{|p{2.5cm}|l|}%
+}{%
+	\end{tabular*}
+}
+
+\newcommand{\Experience}[6]{
+	#1 & \parbox[t]{11.5cm}{
+			\textbf{#2} \hfill \textbf{#3}\\
+			{\addfontfeature{Color=lightgray}\textit{#4}} \hfill {\addfontfeature{Color=lightgray}#5}\\
+			#6\\
+		}\\
+}
 
 % New command to insert a new "education"
-\newcommand{\Education}[4]{%
-	#1	&	\parbox[t]{11.5cm}{	\textbf{#2}	\hfill{\addfontfeature{Color=lightgray} #3}\\%
-			#4								\vspace{\parsep}}\\}
+\newcommand{\Education}[4]{
+	#1 & \parbox[t]{11.5cm}{
+			\textbf{#2}\hfill{\addfontfeature{Color=lightgray}#3}\\
+			#4 \vspace{\parsep}
+		}\\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{RefList}{%
+	\begin{tabular*}{\textwidth}{p{8.5cm}l}%
+}{%
+	\end{tabular*}
+}
 
 % New command to insert 2 references
 \newcommand{\Reference}[8]{%
-	\textbf{#1}										&	\textbf{#5}\\%
-	#2												&	#6\\%
-	{\addfontfeature{Color=lightgray} \textit{#3}}	&	{\addfontfeature{Color=lightgray} \textit{#7}}\\%
-	#4												&	#8\\}
+	\textbf{#1}                                   & \textbf{#5}\\%
+	#2                                            & #6\\%
+	{\addfontfeature{Color=lightgray}\textit{#3}} & {\addfontfeature{Color=lightgray}\textit{#7}}\\%
+	#4                                            & #8\\
+}
 
 %%%%%%%%%%%%%%
 % Side block %
