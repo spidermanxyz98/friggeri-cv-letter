@@ -67,6 +67,11 @@ do
 	esac
 done
 
+if [[ ${LANG} != "french" && ${LANG} != "english" ]] ; then
+	USAGE
+	exit 1
+fi
+
 # RESUME
 CMD1="xelatex -jobname=${LANG} ${TEX_RESUME} >> compilation_resume.log"
 CMD2="mv ${LANG}.pdf ${NAME}_resume.pdf"
