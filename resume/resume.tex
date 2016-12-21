@@ -21,43 +21,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[]{classes/friggeri-resume}
-%\documentclass[print]{friggeri-resume}
+%\documentclass[print]{classes/friggeri-resume}
 %% Add 'print' as an option into the square bracket to remove colors from this template for printing
-
-%%%%%%%%%%%%%%%%
-% NEW COMMANDS %
-%%%%%%%%%%%%%%%%
-
-% \checkjobname : stop compiling if jobname is not french or english
-\newcommand{\checkjobname}{%
-	\newcounter{foo}
-	\setcounter{foo}{0}
-	\ifnum\pdfstrcmp{\jobname}{french}=0
-		\stepcounter{foo}
-	\fi
-	\ifnum\pdfstrcmp{\jobname}{english}=0
-		\stepcounter{foo}
-	\fi
-	\ifnum\the\value{foo}=0
-		\message{Error : bad jobname ! Must be : french or english !}
-		\stop
-	\fi
-}
-
-%%%%%%%%%%%%%%
-% TRADUCTION %
-%%%%%%%%%%%%%%
-
-\usepackage[french, english]{babel}
-
-% this is the macro to define phrases in two languages:
-\newcommand{\trad}[2]{
-	\ifnum\pdfstrcmp{\jobname}{french}=0
-		{#1}
-	\else
-		{#2}
-	\fi
-}
 
 %%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT %
@@ -115,39 +80,47 @@
 
 	\section{\faBriefcase\space Professional experiences}
 
-		\begin{entrylist}
+		%------------------------------------------------
 
-			%------------------------------------------------
+		\Experience
+		{2014-2016}
+		{Subject}
+		{Status}
+		{Company}
+		{City}
+		{
+			$\bullet$ action/skill 1
 
-			\Experience
-			{2014-2016}
-			{Subject}
-			{Status}
-			{Company}
-			{City}
-			{$\bullet$ action/skill 1\\
-			$\bullet$ action/skill 2\\
-			$\bullet$ action/skill 3\\
-			$\bullet$ action/skill 4\\
-			$\bullet$ action/skill 5\\}
+			$\bullet$ action/skill 2
 
-			%------------------------------------------------
+			$\bullet$ action/skill 3
 
-			\Experience
-			{2013-2014}
-			{Subject}
-			{Status}
-			{Company}
-			{City}
-			{$\bullet$ action/skill 1\\
-			$\bullet$ action/skill 2\\
-			$\bullet$ action/skill 3\\
-			$\bullet$ action/skill 4\\
-			$\bullet$ action/skill 5\\}
+			$\bullet$ action/skill 4
 
-			%------------------------------------------------
+			$\bullet$ action/skill 5
+		}
 
-		\end{entrylist}
+	%------------------------------------------------
+
+		\Experience
+		{2013-2014}
+		{Subject}
+		{Status}
+		{Company}
+		{City}
+		{
+			$\bullet$ action/skill 1
+
+			$\bullet$ action/skill 2
+
+			$\bullet$ action/skill 3
+
+			$\bullet$ action/skill 4
+
+			$\bullet$ action/skill 5
+		}
+
+		%------------------------------------------------
 
 	%----------------------------------------------------------------------------------------
 	%	EDUCATION SECTION
@@ -155,34 +128,42 @@
 
 	\section{\faBook\space Education}
 
-		\begin{entrylist}
+		%------------------------------------------------
 
-			%------------------------------------------------
+		\Education
+		{2013-2016}
+		{Diploma}
+		{University}
+		{
+			$\bullet$ action/skill 1
 
-			\Education
-			{2013-2016}
-			{Diploma}
-			{University}
-			{$\bullet$ action/skill 1\\
-			$\bullet$ action/skill 2\\
-			$\bullet$ action/skill 3\\
-			$\bullet$ action/skill 4\\
-			$\bullet$ action/skill 5\\}
-			%------------------------------------------------
+			$\bullet$ action/skill 2
 
-			\Education
-			{2010-2013}
-			{Diploma}
-			{University}
-			{$\bullet$ action/skill 1\\
-			$\bullet$ action/skill 2\\
-			$\bullet$ action/skill 3\\
-			$\bullet$ action/skill 4\\
-			$\bullet$ action/skill 5\\}
+			$\bullet$ action/skill 3
 
-			%------------------------------------------------
+			$\bullet$ action/skill 4
 
-		\end{entrylist}
+			$\bullet$ action/skill 5
+		}
+		%------------------------------------------------
+
+		\Education
+		{2010-2013}
+		{Diploma}
+		{University}
+		{
+			$\bullet$ action/skill 1
+
+			$\bullet$ action/skill 2
+
+			$\bullet$ action/skill 3
+
+			$\bullet$ action/skill 4
+
+			$\bullet$ action/skill 5
+		}
+
+		%------------------------------------------------
 
 	%----------------------------------------------------------------------------------------
 	%	References SECTION
@@ -190,19 +171,15 @@
 
 	\section{\faEdit\space References}
 
-		\begin{RefList}
-
-			\Reference
-			{Reference1 first and last name}
-			{Reference1 status}
-			{Reference1 company/lab}
-			{\href{mailto:firstname@lastname1.com}{\faInbox\space firstname@lastname1.com}}
-			{Reference2 first and last name}
-			{Reference2 status}
-			{Reference2 company/lab}
-			{\href{mailto:firstname@lastname2.com}{\faInbox\space firstname@lastname2.com}}
-
-		\end{RefList}
+		\References
+		{Reference1 first and last name}
+		{Reference1 status}
+		{Reference1 company/lab}
+		{\href{mailto:firstname@lastname1.com}{\faInbox\space firstname@lastname1.com}}
+		{Reference2 first and last name}
+		{Reference2 status}
+		{Reference2 company/lab}
+		{\href{mailto:firstname@lastname2.com}{\faInbox\space firstname@lastname2.com}}
 
 	%----------------------------------------------------------------------------------------
 
