@@ -24,48 +24,11 @@
 
 \documentclass[a4paper, english]{classes/friggeri-letter}
 
-%%%%%%%%%%%%%%%%
-% NEW COMMANDS %
-%%%%%%%%%%%%%%%%
-
-% \checkjobname : stop compiling if jobname is not french or english
-\newcommand{\checkjobname}{%
-	\newcounter{foo}
-	\setcounter{foo}{0}
-	\ifnum\pdfstrcmp{\jobname}{french}=0
-		\stepcounter{foo}
-	\fi
-	\ifnum\pdfstrcmp{\jobname}{english}=0
-		\stepcounter{foo}
-	\fi
-	\ifnum\the\value{foo}=0
-		\message{Error : bad jobname ! Must be : french or english !}
-		\stop
-	\fi
-}
-
-%%%%%%%%%%%%%%
-% TRADUCTION %
-%%%%%%%%%%%%%%
-
-\usepackage[french, english]{babel}
-
-% this is the macro to define phrases in two languages:
-\newcommand{\trad}[2]{
-	\ifnum\pdfstrcmp{\jobname}{french}=0
-		{#1}
-	\else
-		{#2}
-	\fi
-}
-
 %%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT %
 %%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
-	\longindentation=0pt
 
 	% Header :
 	% - Sender first name
@@ -75,54 +38,39 @@
 		   {\trad{Nom}{LastName}}
 		   {\trad{Jeune cadre dynamique}{Professional Cool Guy}}
 
-	% Sender address
-	\address{
-		\trad{address EXPEDITEUR}{SENDER address}  \\
-		\trad{Pays EXPEDITEUR}{SENDER country}
-	}
-
 	\letter{
 		\trad{Nom DESTINATAIRE}{RECIPIENT name}        \\
 		\trad{address DESTINATAIRE}{RECIPIENT address} \\
 		\trad{Pays DESTINATAIRE}{RECIPIENT country}
 	}
 
-	\opening{Dear Name,}
+	\opening{\trad{Candidature}{Apply}}{\trad{Madame, Monsieur,}{Dear Name,}}
 
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
-		Explain why you want the job and summarise why you deserve it.
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+
+	% \longindentation=0pt
 
 	\closing{
-		Yours Sincerely,
-		\firstname \lastname
+		\trad{Dans l'attente d'une réponse de votre part, je vous prie d’agréer, Madame, Monsieur, mes sincères salutations.}{Yours Sincerely,}\\
+		\firstname\space\lastname
 	}
 
 \end{document}
