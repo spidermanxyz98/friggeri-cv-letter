@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Friggeri Cover Letter
+% FriggerBLBLA Cover Letter
 % XeLaTeX Template
 % Version 1.0 (12/09/16)
 %
@@ -10,11 +10,11 @@
 % Thibaut Montagne, based on code by :
 % - Matthew Davis
 %
-% Original theme from : Adrien Friggeri (adrien@friggeri.net)
+% Original theme from : Adrien FriggerBLBLA (adrien@friggeri.net)
 % https://github.com/afriggeri/CV
 %
 % License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% CC BY-NC-SBLA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
 % Important notes:
 % This template needs to be compiled with XeLaTeX
@@ -22,7 +22,9 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper, english]{classes/friggeri-letter}
+\documentclass[]{classes/friggeri-letter}
+%\documentclass[print]{classes/friggeri-resume}
+%% Add 'print' as an option into the square bracket to remove colors from this template for printing
 
 %%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT %
@@ -30,13 +32,33 @@
 
 \begin{document}
 
+	\checkjobname
+
+	\longindentation=0pt
+
 	% Header :
 	% - Sender first name
 	% - Sender last name
 	% - Sender job title
-	\header{\trad{Prénom}{FirstName}}
-		   {\trad{Nom}{LastName}}
-		   {\trad{Jeune cadre dynamique}{Professional Cool Guy}}
+	\header{\trad{Thibaut}{Thibaut}}
+			{\trad{Montagne}{Montagne}}
+			{\trad{Jeune cadre dynamique}{Professional Cool Guy}}
+
+	\address{%
+		\begin{minipage}[c]{4cm}%
+			\setlength{\fboxsep}{0pt}  % Space between picture and "bordure"
+			\setlength{\fboxrule}{2pt} % "bordure" size around the picture
+			\framebox{\includegraphics[width=3cm]{resume/profile.png}}                           \\ % Place your picture here
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[c]{\linewidth}%
+			\href{mailto:thibaut@montagne.pw}{\faInbox\space thibaut@montagne.pw}                \\
+			\href{tel:+33 631 440 040}{\faPhone\space +33 631 440 040}                           \\
+			\href{https://fr.linkedin.com/in/thibautmontagne}{\faLinkedin\space thibautmontagne} \\
+			\href{https://twitter.com/thbtmntgn}{\faTwitter\space @thbtmntgn}                    \\
+			\href{https://github.com/thbtmntgn}{\faGithub\space @thbtmntgn}                      \\
+		\end{minipage}
+	}
 
 	\letter{
 		\trad{Nom DESTINATAIRE}{RECIPIENT name}        \\
@@ -46,31 +68,20 @@
 
 	\opening{\trad{Candidature}{Apply}}{\trad{Madame, Monsieur,}{Dear Name,}}
 
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA.
 
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA.
 
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA.
 
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
-		BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA
+		BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA.
 
-	% \longindentation=0pt
+		BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA.
 
-	\closing{
-		\trad{Dans l'attente d'une réponse de votre part, je vous prie d’agréer, Madame, Monsieur, mes sincères salutations.}{Yours Sincerely,}\\
-		\firstname\space\lastname
-	}
+		BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA.
+
+	\closing
+	{\trad{Dans l'attente d'une réponse de votre part, je vous prie d’agréer, Madame, Monsieur, mes sincères salutations.}{Yours Sincerely,}}
+	{\firstname\space\lastname}
 
 \end{document}
