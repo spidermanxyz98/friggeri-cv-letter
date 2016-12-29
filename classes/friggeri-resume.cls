@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{friggeri-resume}[2016/12/06 Resume based on friggeri template]
 
-\DeclareOption{print}{\def\@cv@print{}}
+\DeclareOption{print}{\def\@resume@print{}}
 \DeclareOption*{%
 	\PassOptionsToClass{\CurrentOption}{article}
 }
@@ -12,13 +12,14 @@
 % Packages %
 %%%%%%%%%%%%
 
+\RequirePackage[french, english]{babel}
 \RequirePackage{xcolor}
+\RequirePackage{etoolbox}
+\RequirePackage{tikz}
 \RequirePackage[quiet]{fontspec}
 \RequirePackage{fontawesome}
-\RequirePackage{tikz}
 \RequirePackage[math-style=TeX, vargreek-shape=unicode]{unicode-math}
 \RequirePackage{ifthen}
-\RequirePackage{etoolbox}
 \RequirePackage{parskip}
 \RequirePackage[absolute, overlay]{textpos}
 \RequirePackage[left=6.1cm, top=2cm, right=1.5cm, bottom=1.5cm, nohead, nofoot]{geometry}
@@ -33,9 +34,11 @@
 	\newcounter{foo}
 	\setcounter{foo}{0}
 	\ifnum\pdfstrcmp{\jobname}{french}=0
+		\selectlanguage{french}
 		\stepcounter{foo}
 	\fi
 	\ifnum\pdfstrcmp{\jobname}{english}=0
+		\selectlanguage{english}
 		\stepcounter{foo}
 	\fi
 	\ifnum\the\value{foo}=0
@@ -43,12 +46,6 @@
 		\stop
 	\fi
 }
-
-%%%%%%%%%%%%%%
-% TRADUCTION %
-%%%%%%%%%%%%%%
-
-\usepackage[french, english]{babel}
 
 % this is the macro to define phrases in two languages:
 \newcommand{\trad}[2]{%
@@ -73,7 +70,7 @@
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
 
-\ifdefined\@cv@print
+\ifdefined\@resume@print
 	\colorlet{green}{gray}
 	\colorlet{orange}{gray}
 	\colorlet{purple}{gray}
